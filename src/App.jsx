@@ -15,12 +15,12 @@ function App() {
   });
 
   // Intersection Observer to track when the last item is in view (for infinite scrolling)
-  const { ref, inView } = useInView();
+  // const { ref, inView } = useInView();
 
   // Fetch the next page of data when the user scrolls to the bottom (inView is true)
-  useEffect(() => {
-    if (inView && hasNextPage) fetchNextPage();  // Only fetch if there's a next page
-  }, [fetchNextPage, inView, hasNextPage]);
+  // useEffect(() => {
+  //   if (inView && hasNextPage) fetchNextPage();  // Only fetch if there's a next page
+  // }, [fetchNextPage, inView, hasNextPage]);
 
   // Flatten all fetched pages into a single array
   const allItems = data ? data.pages.flatMap(page => page.data) : [];
@@ -91,7 +91,8 @@ function App() {
         </List>
 
         {/* Status Message or Loading Indicator */}
-        <div ref={ref} style={{ color: "white" }}>
+        {/* <div ref={ref} style={{ color: "white" }}> */}
+        <div style={{ color: "white" }}>
           {isFetchingNextPage ? "Loading more..." : !hasNextPage ? "No more items!" : null}
         </div>
       </div>
